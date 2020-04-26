@@ -29,7 +29,7 @@ dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation("com.github.ajalt","clikt","1.7.0")
     implementation("org.apache.poi","poi","4.1.2")
-    implementation("org.apache.poi","poi-ooxml","4.1.2")    // QUESTION: Why this dependency was not set at poi?
+    runtime("org.apache.poi","poi-ooxml","4.1.2")    // QUESTION: Why this dependency was not set at poi?
     implementation("de.vandermeer","asciitable","0.3.2")
     testCompile("junit", "junit", "4.12")
 }
