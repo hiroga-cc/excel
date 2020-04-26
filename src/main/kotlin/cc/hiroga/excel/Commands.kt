@@ -18,20 +18,20 @@ class SheetCommands : CliktCommand(name = "sheets") {
 
     override fun run() {
         val wb = WorkbookFactory.create(file)
-        val sheets = mutableMapOf<Int,Sheet>()
+        val sheets = mutableMapOf<Int, Sheet>()
         var i = 0
-        while(true){
-            try{
+        while (true) {
+            try {
                 sheets[i] = wb.getSheetAt(i)
                 i++
-            }catch (e: IllegalArgumentException){
+            } catch (e: IllegalArgumentException) {
                 break
             }
         }
         val table = AsciiTable()
         table.addRule()
         table.addRow("Index", "SheetName", "IsSelected").setTextAlignment(TextAlignment.CENTER)
-        sheets.map{
+        sheets.map {
             table.addRule()
             table.addRow(it.key, it.value.sheetName, it.value.isSelected).setTextAlignment(TextAlignment.CENTER)
         }
